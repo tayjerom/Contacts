@@ -544,6 +544,17 @@ public class Contacts1 {
     }
 
     /**
+     * Returns true if the given person's data fields are valid
+     *
+     * @param person String array representing the person (used in internal data)
+     */
+    private static boolean isPersonDataValid(String[] person) {
+        return isValidName(person[PERSON_DATA_INDEX_NAME])
+                && isValidPhone(person[PERSON_DATA_INDEX_PHONE])
+                && isValidEmail(person[PERSON_DATA_INDEX_EMAIL]);
+    }
+
+    /**
      * Extracts substring representing email from person string representation
      *
      * @param encoded person string representation
@@ -567,17 +578,6 @@ public class Contacts1 {
     }
 
     /**
-     * Returns true if the given person's data fields are valid
-     *
-     * @param person String array representing the person (used in internal data)
-     */
-    private static boolean isPersonDataValid(String[] person) {
-        return isValidName(person[PERSON_DATA_INDEX_NAME])
-                && isValidPhone(person[PERSON_DATA_INDEX_PHONE])
-                && isValidEmail(person[PERSON_DATA_INDEX_EMAIL]);
-    }
-
-    /**
      * Returns true if the given string as a legal person name
      *
      * @param name to be validated
@@ -588,8 +588,8 @@ public class Contacts1 {
     }
 
     /**
-     * Returns true if the given string as a legal person phone number
      *
+     * Returns true if the given string as a legal person phone number
      * @param phone to be validated
      */
     private static boolean isValidPhone(String phone) {
